@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: netpolfrompublic
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: 77.33.44.99/8
+      ports:
+        - port: 80
+          protocol: TCP
+        # - port: 81
+        #   protocol: TCP
